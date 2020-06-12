@@ -4,6 +4,7 @@ window.addEventListener("load", function () {
 
     like();
 
+    // FUNCION LIKE
     function like() {
         $('.fa-heart').unbind().click(function () {
 
@@ -23,5 +24,11 @@ window.addEventListener("load", function () {
             });
         });
     }
+
+    // BUSCADOR
+    $('#search').on("keyup", function() {
+        var value = $('#search').val().toLowerCase();
+        $('#formSearch').attr('action',url+'/users/'+value);
+    });
 
 });

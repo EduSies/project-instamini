@@ -44,11 +44,12 @@ class CommentController extends Controller
         if( $user && ($comment->user_id == $user->id || $comment->image->user_id == $user->id) ){
             $comment->delete();
 
-            return redirect()->route('image.detail',['id' => $comment->image->id])
-                    ->with(['message' => 'El comentario ha sido eliminado correctamente']);
+            $message = array('message' => 'El comentario ha sido eliminado correctamente');
         } else {
-            return redirect()->route('image.detail',['id' => $comment->image->id])
-                    ->with(['message' => 'El comentario NO ha podido ser eliminado']);
+            $message = array('message-error' => 'El comentario NO ha podido ser eliminado');
         }
+
+        return redirect()->route('image.detail',['id' => $comment->image->id])
+                ->with($message);
     }
 }

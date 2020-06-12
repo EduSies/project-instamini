@@ -33,6 +33,14 @@
                             <span class="text-black-50">{{ count($image->likes) }}</span>
                         @endif
 
+                        @if(Auth::user() && Auth::user()->id == $image->user->id)
+                            <i data-toggle="modal" data-target="#deleteModal" class="fas fa-trash cursor-pointer mr-4 ml-2 mb-2 mt-4 float-right"></i>
+                            @include('includes.modal')
+                            <a href="{{ route('image.edit',['id' => $image->id]) }}" class="text-decoration-none text-reset">
+                                <i class="fas fa-edit cursor-pointer mr-2 ml-2 mb-2 mt-4 float-right"></i>
+                            </a>
+                        @endif
+
                         <p class="card-text ml-4 mb-2 mt-2 mr-4">
                             <a href="{{ route('profile',['id' => $image->user->id]) }}" class="text-decoration-none text-reset">
                                 <b class="card-text mr-2">{{ $image->user->nick }}</b>

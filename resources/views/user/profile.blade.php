@@ -16,7 +16,7 @@
                         <hr/>
                         <p class="dark-grey-text mb-0">{{ $user->name.' '.$user->surname }}</p>
                         <p class="card-text text-black-50 mb-0 mt-3">
-                            <small>{{ 'Se unió: '.\FormatTime::LongTimeFilter($user->created_at) }}</small>
+                            <small>{{ __('Se unió: ').\FormatTime::LongTimeFilter($user->created_at) }}</small>
                         </p>
                     </div>
                 </div>

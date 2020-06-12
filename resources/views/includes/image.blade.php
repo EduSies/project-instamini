@@ -17,7 +17,7 @@
         <div class="clearfix"></div>
         <?php $user_like = false; ?>
         @foreach($image->likes as $like)
-            @if($image->user->id == Auth::user()->id)
+            @if($like->user->id == Auth::user()->id)
                 <?php $user_like = true; ?>
             @endif
         @endforeach
@@ -30,7 +30,9 @@
             <a href="{{ route('profile',['id' => $image->user->id]) }}" class="text-decoration-none text-reset">
                 <b class="card-text mr-2">{{ $image->user->nick }}</b>
             </a>
-            <span class="dark-grey-text">{{ $image->description }}</span>
+            <a href="{{ route('image.detail',['id' => $image->id]) }}" class="text-decoration-none text-reset">
+                <span class="dark-grey-text">{{ $image->description }}</span>
+            </a>
         </p>
 
         @if(count($image->comments) != 0)

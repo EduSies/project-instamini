@@ -17,18 +17,20 @@ class LikeController extends Controller
     {
         $user = Auth::user();
 
-        $likes = Like::where('user_id', $user->id)->orderBy('id','desc')->paginate(5);
+        $likes = Like::where('user_id', $user->id)
+                        ->orderBy('id','desc')
+                        ->paginate(5);
 
-        return  view('like.index',[
-            'likes' => $likes
-        ]);
+        return  view('like.index',['likes' => $likes]);
     }
 
     public function like($image_id)
     {
         $user = Auth::user();
 
-        $isset_like = Like::where('user_id', $user->id)->where('image_id', $image_id)->count();
+        $isset_like = Like::where('user_id', $user->id)
+                            ->where('image_id', $image_id)
+                            ->count();
 
         if( $isset_like == 0 ){
             $like = new Like();
@@ -52,7 +54,9 @@ class LikeController extends Controller
     {
         $user = Auth::user();
 
-        $like = Like::where('user_id', $user->id)->where('image_id', $image_id)->first();
+        $like = Like::where('user_id', $user->id)
+                        ->where('image_id', $image_id)
+                        ->first();
 
         if( $like ){
 

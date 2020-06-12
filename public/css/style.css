@@ -28,3 +28,6 @@ body{
 .cursor-pointer {
     cursor: pointer;
 }
+a i{
+    color: #495057;
+}

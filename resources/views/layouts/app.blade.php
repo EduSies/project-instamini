@@ -55,6 +55,9 @@
                                 <a href="{{ route('home') }}" class="nav-link">{{ __('Inicio') }}</a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('user.index') }}" class="nav-link">{{ __('Gente') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('likes') }}" class="nav-link">{{ __('Favoritas') }}</a>
                             </li>
                             <li class="nav-item">
